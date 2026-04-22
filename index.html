@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÖRTEX | Visualizador Prototipos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px 0;
+            /* APLICAMOS LA FUENTE AQUÍ */
+            font-family: 'Montserrat', sans-serif;
+            background-color: #050505; 
+            color: white;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-title {
+            font-weight: 700; /* Bold */
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #d4af37;
+            font-size: 2.5rem;
+        }
+
+        .main-subtitle {
+            font-weight: 300; /* Light */
+            opacity: 0.6;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .models-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            width: 95%;
+            max-width: 1200px;
+            justify-content: center;
+        }
+
+        .container {
+            flex: 1;
+            min-width: 350px;
+            text-align: center;
+            background: #0f0f0f;
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid #1a1a1a;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            border-color: #d4af3755;
+        }
+
+        h2 {
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .copy {
+            font-weight: 300;
+            font-style: italic;
+            opacity: 0.5;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            background: radial-gradient(circle, #1a1a1a 0%, #050505 100%);
+            border-radius: 16px;
+            --poster-color: transparent;
+        }
+
+        #ar-button {
+            background-color: #d4af37;
+            border-radius: 30px;
+            border: none;
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            padding: 10px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: black;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">VÖRTEX</h1>
+    <p class="main-subtitle">The Post-Performance Ritual</p>
+
+    <div class="models-container">
+        <div class="container">
+            <h2>The Vessel</h2>
+            <p class="copy">Ergonomic excellence. Precision engineering for the elite athlete.</p>
+    
+            <model-viewer 
+                src="bottle.glb" 
+                ar ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                tone-mapping="neutral" 
+                shadow-intensity="2"
+                auto-rotate
+                alt="Vortex Bottle">
+                <button slot="ar-button" id="ar-button">VIEW IN AR</button>
+            </model-viewer>
+        </div>
+    
+        <div class="container">
+            <h2>The Hub</h2>
+            <p class="copy">The intersection of automated intelligence and superior nutrition.</p>
+    
+            <model-viewer 
+                src="vending.glb" 
+                ar ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                tone-mapping="neutral" 
+                shadow-intensity="2"
+                auto-rotate
+                alt="Vortex Vending Machine">
+                <button slot="ar-button" id="ar-button">VIEW IN AR</button>
+            </model-viewer>
+        </div>
+    </div>
+
+</body>
+</html>
